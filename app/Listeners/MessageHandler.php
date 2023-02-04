@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\MessageEvent;
 use App\Exceptions\LineBotPushException;
 use App\Services\LineBotService;
+use App\Services\MessageHandlers\GetMyUid;
 use App\Services\MessageHandlers\KeywordReplyFlexMessage;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Pipeline\Pipeline;
@@ -15,6 +16,7 @@ class MessageHandler
 {
     private array $pipes = [
         KeywordReplyFlexMessage::class,
+        GetMyUid::class,
     ];
 
     private LineBotService $lineBotService;
