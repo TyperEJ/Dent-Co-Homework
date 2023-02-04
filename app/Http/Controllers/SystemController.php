@@ -20,8 +20,8 @@ class SystemController extends Controller
      * @throws LineBotPushException
      */
     public function pushMessage(
-        Request $request,
-        SystemService $systemService,
+        Request        $request,
+        SystemService  $systemService,
         LineBotService $lineBotService
     ): RedirectResponse
     {
@@ -36,7 +36,7 @@ class SystemController extends Controller
             $request->input('content')
         );
 
-        $lineBotService->pushMessage($request->input('uid'),$message);
+        $lineBotService->pushMessage($request->input('uid'), $message);
 
         return redirect()->route('system.index');
     }
